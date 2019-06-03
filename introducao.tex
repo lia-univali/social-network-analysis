@@ -1,0 +1,161 @@
+\chapter{Introdução} \label{sec:intro}
+
+Os seres humanos são caracterizados por serem uma espécie intrinsecamente social, de forma com que o contato entre indivíduos molda, essencialmente, todos os aspectos do cotidiano, tanto de formas positivas quanto negativas, assim como de maneiras sutis e intensas \cite{Christakis2009}. A estrutura que descreve um conjunto de indivíduos e os relacionamentos entre estes é denominada rede social \cite{Wasserman1994}.
+
+Na literatura, observam-se diversos estudos relacionados ao impacto de redes sociais no comportamento de indivíduos. A influência social se faz presente em uma considerável variedade de aspectos, como na disseminação de costumes que favorecem o desenvolvimento de obesidade \cite{Christakis2007}; na adoção de produtos através do contato com indivíduos-chave, no contexto de marketing \cite{Iyengar2011}; e no uso de drogas, álcool e tabaco por adolescentes \cite{Simons-Morton2010}. As redes sociais também apresentam elevada importância em contextos educacionais: \citeonline{Farmer1996} sugerem que certos traços de personalidade em estudantes do ensino fundamental apresentam alta correlação com seu status social, enquanto \citeonline{Flashman2012} demonstra que estudantes com alto desempenho acadêmico tendem a formar laços de amizade com colegas que também apresentam desempenho acima da média.
+
+Dada a significância das redes sociais no comportamento individual, é possível assumir que estas também moldam a visão dos estudantes acerca da importância do sucesso acadêmico. \citeonline{Blansky2013} sugerem que, para estudantes do nível 11 em uma escola dos Estados Unidos (equivalente ao Segundo Ano do Ensino Médio no Brasil), a presença de um grupo de amigos com alto desempenho acadêmico tende a fomentar uma melhora nas notas do aluno. Tal resultado se mostra coerente com o trabalho de \citeonline{Flashman2012}, além de indicar a existência de um processo de contágio social no contexto das salas de aula, evidenciando a capacidade de disseminação de comportamentos em redes sociais. Entretanto, a pesquisa considera somente as conexões imediatas dos estudantes, desprezando a influência de indivíduos que se encontram em um nível mais elevado de separação (por exemplo, amigos de amigos).
+
+Sabe-se, entretanto, que a influência social não advém somente de contatos imediatos. Segundo \citeonline{Fowler2008}, ao considerar-se uma rede social de cerca de 5000 indivíduos observada ao longo de 20 anos, é possível identificar a existência de processos de contágio emocional entre os indivíduos, onde pessoas cujo grupo social apresenta um elevado nível de felicidade tendem a tornarem-se mais felizes ao longo dos anos, sendo que tal influência pode ser observada entre indivíduos com até 3 graus de separação (ou seja, um amigo de um amigo de um amigo). Considerando esta evidência, é possível argumentar a favor da expansão do estudo de \citeonline{Blansky2013} para levar em conta não somente a vizinhança social imediata dos estudantes, mas também o contexto social em que estes estão inseridos, sob uma perspectiva mais abrangente.
+
+A identificação de grupos de indivíduos em redes sociais é uma área de estudo de grande relevância tanto no campo da Ciência das Redes, devido à possibilidade de organização de redes em módulos com funções e estrutura bem definidas e a formalização dos critérios de subdivisão das redes \cite{Wasserman1994,Newman2003}, quanto na área da Computação, pois o problema pode ser modelado e resolvido computacionalmente através da aplicação de conceitos da Teoria dos Grafos \cite{Easley2010}. Entre as estratégias tipicamente utilizadas na literatura para identificar subgrupos coesos de elementos de uma rede –- denominados comunidades -– se encontram a Maximização da Modularidade, proposta por \citeonline{Newman2004}, e a Modularidade por Densidade, desenvolvida por \citeonline{Li2008}.
+
+Por meio da aplicação de metodologias de identificação automática de comunidades em uma rede social, torna-se possível avaliar a capacidade de disseminação de características comportamentais entre indivíduos socialmente próximos, mesmo que estes não estejam diretamente ligados. Alguns trabalhos, como o de \citeonline{Huang2007}, indicam que a capacidade de propagação de um agente infeccioso abstrato é maior entre indivíduos que pertencem à mesma comunidade (intra-comunidade); no entanto, a própria presença de comunidades na rede tende a limitar a incidência do contágio, pois a transmissão do agente entre indivíduos que pertencem a comunidades diferentes (inter-comunidade) apresenta probabilidade bastante reduzida.
+
+Neste contexto, este trabalho busca analisar a dinâmica da influência do grupo social em que estudantes estão inseridos sobre seu desempenho acadêmico, compreendendo como grupo social a comunidade a qual o indivíduo pertence. Mais especificamente, a população a ser analisada consistirá em estudantes de graduação de uma instituição de ensino superior; desta forma, será possível identificar se os resultados apresentam variabilidade em função da área de conhecimento referente ao curso ao qual o estudante está vinculado.
+
+\section{Problematização} \label{sec:problematisation}
+
+O problema abordado nesta proposta consiste na quantificação da influência das comunidades dos estudantes do ensino superior sobre suas notas. Existe um consenso na literatura quanto ao elevado potencial de influência que as redes sociais detém sobre uma grande gama de aspectos individuais \cite{Christakis2007,Christakis2009,Centola2010,Iyengar2011}; no entanto, o número de investigações quantitativas referentes ao papel da influência social no contexto da educação se encontra relativamente limitado, sendo focado especialmente no ambiente de ensino básico \cite{Blansky2013,Butler-Barnes2015,Gremmen2017}. Observa-se, além disso, uma ausência de estudos publicados tratando da relação entre a estrutura de comunidades das redes sociais e o desempenho estudantil.
+Ao término deste trabalho, pretende-se responder às seguintes perguntas de pesquisa:
+\begin{enumerate}
+    \item As características dos círculos sociais dos estudantes do ensino superior apresentam influência sobre a tendência geral de seu desempenho acadêmico?
+    \item Alunos de cursos de diferentes áreas do conhecimento apresentam distinções no tocante ao impacto de círculos sociais sobre suas notas?
+\end{enumerate}
+Para a primeira pergunta, compreende-se como “círculo social” a comunidade a qual o estudante pertence, detectada através de técnicas propostas por autores da área, e como “tendência geral” a evolução das notas do aluno ao longo do tempo, seja ela crescente ou decrescente. Para a segunda pergunta, pretende-se identificar se existem turmas de estudantes que demonstram um nível maior, menor ou equivalente de susceptibilidade à influência social em relação a turmas de cursos de diferentes áreas do conhecimento (por exemplo, ciências humanas em relação a ciências exatas).
+
+\subsection{Solução Proposta} \label{sec:proposal}
+
+Para responder às perguntas de pesquisa, propõe-se efetuar dois estágios principais: \textit{(i)} coleta e estruturação de dados, que compreende o desenvolvimento e aplicação de um formulário sobre os estudantes, organizando-os de acordo com suas turmas, seguido da reconstrução das respostas obtidas na forma de uma rede complexa, representada computacionalmente por um grafo; e \textit{(ii)} análise e inferência, onde pretende-se selecionar e aplicar um algoritmo de detecção de comunidades sobre as redes reconstruídas, seguida pela utilização de metodologias estatísticas para obter resultados quantitativos quanto ao problema especificado na Seção \ref{sec:problematisation}.
+Assim, busca-se verificar as seguintes hipóteses para a pergunta 1:
+\begin{itemize}
+    \item \ul{$P_1H_0$}: a tendência geral das notas médias dos estudantes do ensino superior não é afetada por círculos sociais.
+    \item \ul{$P_1H_0$}: a tendência geral das notas médias dos estudantes do ensino superior é afetada de forma significativa por círculos sociais.
+\end{itemize}
+Quanto à pergunta 2, as seguintes hipóteses serão testadas:
+\begin{itemize}
+    \item \ul{$P_2H_0$}: a influência dos círculos sociais sobre o desempenho acadêmico no ensino superior é equivalente em todas as áreas do conhecimento investigadas.
+    \item \ul{$P_2H_1$}: a influência dos círculos sociais sobre o desempenho acadêmico no ensino superior apresenta variações significativas de acordo com a área do conhecimento. 
+\end{itemize}
+
+\subsection{Delimitação de Escopo} \label{sec:scope}
+
+O trabalho proposto considera especificamente estudantes de graduação do ensino superior de uma instituição; consequentemente, não será possível comprovar que os resultados podem ser extrapolados para outras instituições de ensino nem para estudantes de outros níveis, como ensino fundamental, médio ou pós-graduação. A limitação referente a apenas uma instituição se torna ainda mais acentuada ao levar-se em conta a diversidade populacional presente nos estados do Brasil, visto que existem trabalhos que sugerem que indivíduos podem apresentar níveis diferentes de susceptibilidade à influência social de acordo com o local em que residem \cite{Kongsompong2009}.
+
+Para medir o desempenho acadêmico dos estudantes, a única métrica a ser utilizada consistirá na média semestral das notas, agregando todas as disciplinas, trabalhos e provas. Entretanto, existem diversos outros fatores que poderiam contribuir para uma definição mais precisa e abrangente de desempenho acadêmico, como frequência, comportamento em sala de aula e participação em atividades extracurriculares.
+
+Os dados utilizados para realizar a identificação e caracterização dos círculos sociais dos estudantes serão coletados exclusivamente por intermédio de um questionário, que será respondido de forma voluntária pela população pretendida. Por consequência, é possível identificar duas fragilidades: \textit{(i)} os estudantes podem optar por não responder à pesquisa, acarretando na presença de dados faltantes e, assim, dificultando a reconstrução da rede social na forma de um grafo precisamente; e \textit{(ii)} as respostas dos estudantes podem ser influenciadas por variáveis externas temporárias, como seu estado emocional ou experiências recentes perante seus contatos, sejam estas positivas (por exemplo, um diálogo animado ou participação em um evento) ou negativas (uma briga ou discussão acalorada). No trabalho de \citeonline{Newman2003} é possível observar alguns comentários acerca destas limitações e possíveis abordagens para contorná-las; no entanto, nenhuma alternativa à aplicação de questionários se mostrou viável para o contexto desta proposta.
+
+\subsection{Justificativa} \label{sec:justification}
+
+O presente trabalho pretende realizar uma contribuição multidisciplinar, envolvendo tanto as áreas da Psicologia e da Sociologia, visto que a investigação visa avaliar as mudanças comportamentais dos indivíduos de acordo com seu contexto social, quanto as áreas da Computação e Ciência das Redes, dada a necessidade da modelagem computacional das turmas dos estudantes na forma de grafos, além do potencial de validação de algoritmos de detecção de comunidades em um contexto aplicado. Adicionalmente, o trabalho também contribuirá para a área da Educação, servindo como uma fundamentação para guiar o desenvolvimento de metodologias de ensino que levam em conta a importância da influência social em sala de aula.
+
+O trabalho proposto pertence a uma linha de pesquisa com evidente interesse na comunidade científica, como demonstrado nas Seções \ref{sec:intro} e \ref{sec:problematisation}. No entanto, identificou-se uma deficiência no número de trabalhos que visam estabelecer uma relação mais próxima entre a análise de redes complexas, como descrita por \citeonline{Wasserman1994}, e a influência social no desempenho discente. Entre os diferenciais adicionais da presente proposta de trabalho é possível identificar: \textit{(i)} atenção ao contexto dos estudantes de graduação, onde é possível observar tendências de escolha de área do conhecimento de acordo com características da personalidade \cite{Vedel2016}; e \textit{(ii)} consideração de um contexto social mais amplo, levando em conta graus de separação maiores do que um (por exemplo, amigos de amigos que não possuem contato direto com o indivíduo em questão), sendo este um aspecto defendido por alguns autores influentes \cite{Christakis2009}.
+
+\section{Objetivos} \label{ref:goals}
+
+\subsection{Objetivo Geral}
+
+Avaliar quantitativamente o impacto da disseminação de comportamento entre os integrantes dos círculos sociais de estudantes de graduação sobre seu desempenho acadêmico.
+
+\subsection{Objetivos Específicos}
+
+\vspace*{0pt}
+
+\begin{alineas}[nosep] 
+	\item Obter permissão para coleta dos dados junto ao Comitê de Ética;
+    \item Identificar metodologia de anonimização permitindo associação entre as respostas do questionário e as tabelas de notas dos estudantes;
+    \item Elaborar e aplicar o questionário sobre a população estabelecida;
+    \item Reconstruir as redes sociais das turmas na forma de grafos a partir das respostas do questionário;
+    \item Selecionar e aplicar uma técnica de detecção de comunidades em redes complexas;
+    \item Identificar métricas de comparação entre comunidades de acordo com as notas dos estudantes que a compõem;
+    \item Validar as hipóteses estabelecidas através de testes estatísticos.
+\end{alineas}
+
+\section{Metodologia}
+
+O trabalho proposto consiste em uma pesquisa descritiva, visto que não pretende-se manipular as variáveis em questão, apenas estabelecer relações entre elas por meio de observações. Tal classe de pesquisa favorece uma clara definição do problema de pesquisa e das hipóteses que serão investigadas, além de ser frequentemente utilizada em estudos que visam caracterizar o perfil de indivíduos e grupos \cite{Cervo2007}.
+
+O principal instrumento utilizado para realizar a coleta dos dados consistirá em um questionário a ser aplicado em cada uma das turmas selecionadas, cujo propósito envolve possibilitar a reconstrução computacional da rede social de acordo com o nível de proximidade social entre os estudantes. Além disso, será necessário coletar as informações referentes às notas dos alunos juntamente às coordenações dos cursos. Ambas as fontes de dados passarão por um processo de anonimização, tendo em vista a necessidade da proteção da privacidade dos respondentes. Este processo será efetuado de acordo com as diretrizes do Comitê de Ética, que conduzirá um julgamento acerca do instrumento de coleta de dados.
+
+A reconstrução da rede social será efetuada de forma similar à descrita no trabalho de \citeonline{Blansky2013}, onde as conexões entre os indivíduos são estabelecidas de acordo com seu nível de proximidade social; caso a proximidade mútua ultrapasse um limiar previamente estabelecido, uma ligação é criada entre os indivíduos.
+
+O estágio final do trabalho compreenderá a detecção das comunidades por meio do algoritmo selecionado, seguido da execução de análises estatísticas considerando a tendência das notas de cada aluno em relação às tendências dos membros de sua comunidade. Os resultados obtidos serão sumarizados visando verificar as hipóteses estabelecidas na Seção \ref{sec:proposal}.
+
+\section{Estrutura do Trabalho}
+
+Este estudo está dividido em quatro capítulos. O Capítulo \ref{sec:intro}, Introdução, apresentou uma visão geral acerca do trabalho, introduzindo o problema de pesquisa e a solução proposta, além dos objetivos do estudo. O Capítulo \ref{sec:theory}, Fundamentação Teórica, apresenta um levantamento da literatura sobre os principais tópicos abordados no trabalho, tratando primariamente da análise de redes complexas, dos aspectos matemáticos e computacionais da Teoria dos Grafos e de questões associadas à coleta e análise de dados sociológicos, além de apresentar um conjunto de trabalhos relacionados ao presente. O Capítulo \ref{sec:project}, Projeto, descreve de forma detalhada a solução proposta, tratando da metodologia a ser utilizada para realizar a coleta e análise dos dados, visando atingir os objetivos elencados no Capítulo \ref{sec:intro}. Por fim, o Capítulo \ref{sec:conclusions}, Considerações Finais, conclui este estágio do estudo, apresentando uma recapitulação sobre os principais tópicos do trabalho e enumerando os próximos passos.
+
+% \subsection{Plano de Trabalho}
+
+% \setuldepth{Levantamento}
+% \vspace*{0pt}
+% \begin{enumerate}
+%     \item \ul{Levantamento de literatura científica acerca do tema}: esta etapa atenderá os Objetivos Específicos 2, 5 e 6 e compreende a execução das seguintes atividades:
+%     \begin{alineas}
+%         \item \ul{Leitura de trabalhos com objetivo similar}: estudo de artigos científicos visando fundamentar as demais atividades e o projeto a ser submetido na atividade 2.a;
+%         \item \ul{Leitura sobre anonimização}: identificação de metodologias para eliminar informações pessoais dos dados;
+%         Comparação de métodos de detecção de comunidades: definição do algoritmo a ser utilizado a partir de um estudo comparativo;    
+%     \end{alineas}
+
+%     \item \ul{Coleta de dados}: esta etapa atenderá os Objetivos Específicos 1 e 3 e envolverá os seguintes passos:
+%     \begin{alineas}
+%         \item \ul{Obtenção de permissão do Comitê de Ética}: elaboração e submissão do projeto para avaliação do Comitê;
+%         \item \ul{Elaboração do questionário}: construção das perguntas a serem respondidas pelos estudantes;
+%         \item \ul{Aplicação do questionário}: seleção de cursos, envio do formulário e conscientização do público-alvo;
+%         \item \ul{Obtenção das notas médias}: estabelecimento de contato com coordenadores para extração de médias evitando violações de privacidade;    
+%     \end{alineas}
+    
+%     \item \ul{Estruturação dos dados}: esta etapa atenderá o Objetivo Específico 4 e envolverá os seguintes passos:
+%     \begin{alineas}
+%         \item \ul{Anonimização}: aplicação do método de anonimização identificado no passo 1.b;
+%         \item \ul{Reconstrução das redes}: codificação de um algoritmo para transformação das respostas do questionário em grafos;
+%         \item \ul{Associação dos dados}: construção de um meio de consulta às notas do indivíduo pós-anonimização;    
+%     \end{alineas}
+
+%     \item \ul{Análise e sumarização}: esta etapa atenderá o Objetivo Específico 7 e envolverá os seguintes passos:
+%         \begin{alineas}
+%         \item \ul{Métricas de avaliação}: extração de resultados dos dados estruturados de acordo com o levantamento bibliográfico realizado no passo 1.a;
+%         \item \ul{Testes estatísticos}: construção de testes estatísticos apropriados para confirmação das hipóteses estabelecidas;
+%         \item \ul{Documentação}: redação do relatório do estudo conduzido;
+%     \end{alineas}
+% \end{enumerate}
+
+% \subsection{Cronograma}
+
+% \begin{cronograma}{Cronograma de execução para o TTC I}\label{board:schedule1}
+%     \uHeaderCronograma{03/2019}{04/2019}{05/2019}{06/2019}{07/2019}
+%     \uAtividade{1.a) Leitura de trabalhos com objetivo similar}         {XXXX}{XXXX} {}     {XXXX} {}
+%     \uAtividade{1.b) Leitura sobre anonimização}                        {XXXX} {}     {XXXX} {}{}
+%     \uAtividade{1.c) Comparação de métodos de detecção de comunidades}  {\nX\nX XX} {XX \nX\nX} {XXXX} {}{}
+%     \uAtividade{2.a) Obtenção de permissão do Comitê de Ética}          {XXXX} {XX \nX\nX}     {}     {}{}
+%     \uAtividade{2.b) Elaboração do questionário}                        {}     {\nX XXX}     {}     {}{}
+%     \uAtividade{2.c) Aplicação do questionário}                         {}     {}     {XXXX} {XXXX} {}
+%     \uAtividade{2.d) Obtenção das notas médias}                         {}     {}     {XXXX} {XXXX} {}
+%     \uAtividade{3.a) Anonimização}                                      {} {} {} {\nX\nX XX} {XXX \nX}
+%     \uAtividade{4.c) Documentação}                                      {\nX\nX XX} {XXXX} {\nX\nX XX} {XXXX} {XXXX}
+% \end{cronograma}
+
+% \begin{cronograma}{Cronograma de execução para o TTC II}\label{board:schedule2}
+%     \uHeaderCronograma{08/2019}{09/2019}{10/2019}{11/2019}{12/2019}
+%     \uAtividade{3.b) Reconstrução das redes} {XXXX}{} {}{}{}
+%     \uAtividade{3.c) Associação dos dados}   {}    {XX \nX\nX}{}{}{}
+%     \uAtividade{4.a) Métricas de avaliação}  {}    {\nX\nX XX} {XXXX} {} {}
+%     \uAtividade{4.b) Testes estatísticos}    {}    {}         {}     {XXXX} {}
+%     \uAtividade{4.c) Documentação}           {}    {}         {XXXX} {XXXX} {XX \nX\nX}
+% \end{cronograma}
+
+% \subsection{Análise de Riscos}
+
+% \begin{riscos}{Análise de Riscos}\label{quadro:riscos}
+%     \uHeaderRiscos
+%     \uRisco{Reprovação do projeto submetido ao Comitê de Ética}
+%           {Média}{Baixo}{Retorno negativo na plataforma de submissão de projetos}
+%           {Adaptação do projeto de acordo com as indicações dos revisores seguida de ressubmissão}
+%     \uRisco{Presença de dados faltantes para uma turma}
+%           {Alta}{Baixo}{Um ou mais membros da turma optaram por não responder o questionário}
+%           {Preenchimento dos dados faltantes por meio de análise de tendência média entre os membros da turma}
+%     \uRisco{Ausência de métricas de avaliação específicas para o problema}
+%           {Média}{Média}{Nenhuma das referências bibliográficas identificadas propõe uma métrica de avaliação diretamente aplicável}
+%           {Expansão dos termos de pesquisa em bases de artigos, seguido de adaptação ou elaboração de uma métrica específica para o problema}
+% \end{riscos}
