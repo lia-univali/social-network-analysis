@@ -26,7 +26,6 @@ def to_ranking(rel_df, auxiliary_df, column, ignore_rank=False):
       ranking_dict[student] = (len(students) - rank) / len(students)
     else:
       ranking_dict[student] = row[column]
-    # print(student, row['nome'], ranking_dict[student])
 
   return ranking_dict
 

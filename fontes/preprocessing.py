@@ -87,8 +87,8 @@ def fill_missing_relationships(df, auxiliary_df):
       
       for alter in everyone:
         if ego != alter:
-          ego_name = ego_row['nome']
-          alter_name = auxiliary_df[auxiliary_df['docid'] == alter].iloc[0]['nome']
+          ego_name = ego_row['docid']
+          alter_name = auxiliary_df[auxiliary_df['docid'] == alter].iloc[0]['docid']
 
           reverse = network_utils.get_reverse(df, ego, alter)
           filled_value = None
